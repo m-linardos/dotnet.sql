@@ -39,4 +39,21 @@ where description = 'Asst.Supervisor'
 order by Description;
 
 
--- 
+-- (ONLY FOR THIS QUERY, NOT CHANGING DATABASE)
+-- create query to add a column to result set.  New column Senior Exec. (given to all Presidents & VPs).   /  All above columns plus Senior Exec. that is Y or N.
+
+select firstname, lastname, Description, salary, 'Yes' as 'SR. EXEC.'
+from job
+join employee
+on employee.jobid = job.id
+where description = 'President' OR  description = 'VP'
+--order by Description;
+
+UNION
+
+Select firstname, lastname, Description, salary, 'No' as 'SR. EXEC.'
+from job
+join employee
+on employee.jobid = job.id
+where Not (description = 'President' OR description = 'VP')
+order by salary;

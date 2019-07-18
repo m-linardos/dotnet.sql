@@ -1,4 +1,4 @@
-DECLARE @dept nvarchar(30) = 'Director        
+DECLARE @dept nvarchar(30) = 'Director'       
 
 SELECT * FROM job where description = @dept;						-- SHOWS DIRECTOR SALARY BEFORE
 
